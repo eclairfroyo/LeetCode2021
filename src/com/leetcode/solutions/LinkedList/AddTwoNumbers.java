@@ -1,7 +1,6 @@
 package com.leetcode.solutions.LinkedList;
-
+//2. Add two numbers represented in linked list.
 public class AddTwoNumbers {
-    
     public static class ListNode {
         int val;
         ListNode next;
