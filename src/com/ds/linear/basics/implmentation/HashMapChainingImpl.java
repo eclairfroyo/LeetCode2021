@@ -27,6 +27,7 @@ public class HashMapChainingImpl<K, V> {
         hashTable.ensureCapacity(capacity);
         System.out.println(capacity + " : " + hashTable.size());
         // why do we have set each value in hashTable arrayList to null ?
+        // Ans : ensureCapacity sets only the base table size,
         for(int i = 0; i < capacity; i++){
             hashTable.add(null);
         }
@@ -47,6 +48,7 @@ public class HashMapChainingImpl<K, V> {
         //if not, get the hash value and fetch corresponding list.
         node = new HashMapDS<>(key, value);
         int tableIndex = getHTableIndex(key);
+        System.out.println("hash value is " + tableIndex);
         if(hashTable.get(tableIndex) != null) {
             //if there exists a list already for the given key,
             //  insert the new <key, value> in the front of the list.
@@ -54,6 +56,7 @@ public class HashMapChainingImpl<K, V> {
             node.next.prev = node;
         }
         hashTable.set(tableIndex, node);
+        System.out.println("table size is : " + hashTable.size());
     }
 
 
