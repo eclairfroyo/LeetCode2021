@@ -113,8 +113,10 @@ public class LinkedList {
             return cur.next;
         // 2 -> 6 -> 4 -> null
         // index 2. 3rd element.
-        while(--index > 0)
+        while(--index > 0) {
+            System.out.println("index " + index);
             cur = cur.next;
+        }
         cur.next = cur.next != null ? cur.next.next : null;
         return root;
     }
@@ -141,20 +143,19 @@ public class LinkedList {
         root = insertAtLast(1, root);
         root = insertAtFirst(2, root);
         root = insertAtLast(3, root);
-        printList(root);
         root = insertAtIndex(5, 2, root);
         root = insertAtIndex(15, 0, root);
         printList(root);
 
-        List cur = searchByValue(10, root);
-        System.out.println("search by value");
-        printList(cur);
-        getListSize(root);
-
+        ;
+        root = deleteAtPos(root,5);
         root = deleteAtFirst(root);
         root = deleteAtLast(root);
         root = deleteByValue(root,10);
-        root = deleteAtPos(root,2);
+        printList(root);
+
+        List cur = searchByValue(10, root);
+        System.out.println("search by value");
         printList(cur);
     }
 }
