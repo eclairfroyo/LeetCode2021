@@ -20,7 +20,7 @@ public class GenericStack<E> {
     }
 
     public E pop() {
-        if(size == 0)
+        if(size == -1)
             return null;
         E e = (E) elements[--size];
         elements[size] = null;
@@ -37,6 +37,7 @@ public class GenericStack<E> {
     {
         StringBuilder sb = new StringBuilder();
         sb.append('[');
+        System.out.println(size + " : " + elements[size-1]);
         for(int i = 0; i < size ;i++) {
             sb.append(elements[i].toString());
             if(i < size-1){
@@ -47,7 +48,7 @@ public class GenericStack<E> {
         return sb.toString();
     }
 }
-class Main {
+class QueueImpl {
    public static void main(String args[]) {
        GenericStack<Long> stack = new GenericStack<>();
 
